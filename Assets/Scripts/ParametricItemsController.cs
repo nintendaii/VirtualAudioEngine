@@ -13,7 +13,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            amountOfSpectrum = AudioDataFetcher.amountOfSpectrum;
+            amountOfSpectrum = AudioDataFetcher.AmountOfSpectrum;
             parametricCubesArray = new GameObject[amountOfSpectrum];
             var angle = 360f/amountOfSpectrum;
             var val = 2;
@@ -24,7 +24,6 @@ namespace DefaultNamespace
                 iter++;
             }
 
-            Debug.LogError(iter);
             for (var i = 0; i < amountOfSpectrum; i++)
             {
                 var parCube = Instantiate(parametricCube);
