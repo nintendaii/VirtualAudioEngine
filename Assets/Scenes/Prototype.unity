@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031e056ca3a68423bb56591686c93c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountOfSpectrumValue: 1024
 --- !u!82 &511486051
 AudioSource:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7581b7496af3b489c9e500521dbe7313, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2665ec36a21b04ea3a767f6452aacdca, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -468,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307372ed0ec14073952998cfae61af01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountOfSpectrum: 0
   maxScale: 10000
   parametricCube: {fileID: 5769556614934533389, guid: f4e62eac293f64e279377e6576437c9c, type: 3}
   parametricCubesArray:

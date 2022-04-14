@@ -6,33 +6,47 @@ namespace DefaultNamespace
 {
     public class ParametricItemsController : MonoBehaviour
     {
+        public int amountOfSpectrum;
         public float maxScale;
         public GameObject parametricCube;
-        public GameObject[] parametricCubesArray = new GameObject[512];
+        public GameObject[] parametricCubesArray;
 
         private void Start()
         {
-            for (var i = 0; i < 512; i++)
+            amountOfSpectrum = AudioDataFetcher.amountOfSpectrum;
+            parametricCubesArray = new GameObject[amountOfSpectrum];
+            var angle = 360f/amountOfSpectrum;
+            var val = 2;
+            var iter = 1;
+            while (val!=amountOfSpectrum)
+            {
+                val *=2;
+                iter++;
+            }
+
+            Debug.LogError(iter);
+            for (var i = 0; i < amountOfSpectrum; i++)
             {
                 var parCube = Instantiate(parametricCube);
                 parCube.transform.position = transform.position;
                 parCube.transform.parent = transform;
                 parCube.name = $"ParametricCube{i}";
-                transform.eulerAngles = new Vector3(0, -.703125f*i, 0);
-                parCube.transform.position = Vector3.forward * 100;
+                transform.eulerAngles = new Vector3(0, -angle*i, 0);
+                parCube.transform.position = Vector3.forward * 25 * (iter-5);
                 parametricCubesArray[i] = parCube;
             }
         }
 
         private void Update()
         {
-            for (var i = 0; i < 512; i++)
+            for (var i = 0; i < amountOfSpectrum; i++)
             {
                 if (parametricCubesArray != null)
                 {
                     parametricCubesArray[i].transform.localScale = new Vector3(1, AudioDataFetcher.SamplesData[i]*maxScale + 1, 1);
                 }
-            }
+            } 
+           
         }
     }
 }

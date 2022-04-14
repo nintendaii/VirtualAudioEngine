@@ -3,10 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioDataFetcher : MonoBehaviour
 {
-    public static float[] SamplesData = new float[512];
+    public static float[] SamplesData;
+    public int amountOfSpectrumValue;
+    public static int amountOfSpectrum;
     private AudioSource _audioSource;
     private void Start()
     {
+        amountOfSpectrum = amountOfSpectrumValue;
+        SamplesData = new float[amountOfSpectrum];
         _audioSource = GetComponent<AudioSource>();
     }
 
