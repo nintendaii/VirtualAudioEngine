@@ -51,4 +51,23 @@ public class AudioDataFetcher : MonoBehaviour
             FrequencyBands[i] = avarage * 10;
         }
     }
+    
+    private void GenerateFrequencyBandsCustom()
+    {
+        var step = AmountOfSpectrum / 8;
+        var currentStep = step;
+        var startStep = 0;
+        for (var i = 0; i < 8; i++)
+        {
+            var total = 0f;
+            for (var j = startStep; j < currentStep; j++)
+            {
+                total += SamplesData[j];
+            }
+
+            FrequencyBands[i] = total;
+            startStep = step;
+            currentStep += step;
+        }
+    }
 }
